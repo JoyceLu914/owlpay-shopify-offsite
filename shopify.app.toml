@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "cecd0ff6349d8bbbacdd1ba6d02876b0"
+name = "owlpay-offsite"
+handle = "owlpay-offsite"
+application_url = "https://fork-solely-environmental-elderly.trycloudflare.com"
+embedded = false
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,write_payment_gateways,write_payment_sessions"
+
+[auth]
+redirect_urls = [
+  "https://fork-solely-environmental-elderly.trycloudflare.com/auth/callback",
+  "https://fork-solely-environmental-elderly.trycloudflare.com/auth/shopify/callback",
+  "https://fork-solely-environmental-elderly.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "owlpay-acquiring-dev.myshopify.com"
+automatically_update_urls_on_dev = true
